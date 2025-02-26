@@ -10,52 +10,29 @@
 
 </head>
 <body>
-
-  
-<h3>Add Items</h3>
-
-<form class="row g-5 row p-2" >
- 
-  <div class="col-auto">
-    <label for="code" readonly class="form-control-plaintext" >Item Code</label>
-
-    <input type="text" class="form-control" id="code" placeholder="code">
-</div>
-<div class="col-auto">
-    <label for="name" readonly class="form-control-plaintext">Item Name</label>
-    <input type="text" class="form-control" id="name" placeholder="name">
-</div>
-<div class="col-auto">
-    <label for="price" readonly class="form-control-plaintext">Price</label>
-    <input type="text" class="form-control" id="price" placeholder="price">
-</div>
-<div class="col-auto">
-    <label for="discount" readonly class="form-control-plaintext">Discount</label>
-    <input type="text" class="form-control" id="discount" placeholder="discount">
-</div>
-
- <div class="col-auto">
-    <button type="button" class="btn btn-success"  onclick="addItem()">Add Item</button>
-
-</div>
-</form>
-
-<h3> Display Item</h3>
-
+    <div class="px-4 py-5 my-5 text-center bg-light">
+        <h1 class="display-5 fw-bold text-body-emphasis">Item Management</h1>
+        <div class="col-lg-6 mx-auto">
+        <h3>Add Items</h3>
+        <div class="justify-content-sm-center">
+        <input type="text" class="form-control p-2 m-4 " id="code" placeholder="Item Code">
+        <input type="text" class="form-control p-2 m-4 " id="name" placeholder="Name">
+        <input type="text" class="form-control p-2 m-4 " id="price" placeholder="Unit Price">
+        <input type="text" class="form-control p-2 m-4" id="discount" placeholder="Discount">
+        <button type="button" class="btn btn-success"  onclick="addItem()">Add Item</button>
+    </div>
+    </div>
+    </div>
+    </div>
+    <div class="px-4 py-5 my-5 text-center bg-warning-subtle">
+        <h3 class="display-5 fw-bold text-body-emphasis">Display Item</h3>
 <button type="button" class="btn btn-outline-primary" id="load-item">Load Table</button>
-
-
 <table class="table table-dark table-striped mt-5" id="item-table" border="1" style="width: 750px;">
   
 </table>
 
-<h3>Search Item By Code</h3>
-
-
-
-
-
-
+</div></div>
+</div>
 </div>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
     <script src="app.js"></script>

@@ -44,4 +44,36 @@ public class ItemServiceImpl implements ItemService {
     public void deletItemByCode(String code) {
         repository.deleteById(code);
     }
+
+    @Override
+    public List<Item> searchItemsByCategory(String category) {
+        List <ItemEntity> all=repository.findByCategory(category);
+        List<Item> itemList=new ArrayList<>();
+
+        all.forEach(itemEntity -> {
+            itemList.add(mapper.map(itemEntity,Item.class));
+        });
+
+
+        return itemList;
+
+
+    }
+
+    @Override
+    public List<Item> searchItemByName(String name) {
+        List <ItemEntity> all=repository.findByName(name);
+        List<Item> itemList=new ArrayList<>();
+
+        all.forEach(itemEntity -> {
+            itemList.add(mapper.map(itemEntity,Item.class));
+        });
+        return itemList;
+
+    }
+
+    @Override
+    public void updateItem(Item item) {
+        repository.save(mapper.map(item, ItemEntity.class));
+    }
 }

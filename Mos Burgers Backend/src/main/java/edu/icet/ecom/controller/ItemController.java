@@ -17,8 +17,6 @@ public class ItemController {
     @PostMapping("/add-item")
     public void addItem(@RequestBody Item item){
         service.addItem(item);
-
-
     }
 
     @GetMapping("/get-all")
@@ -36,6 +34,21 @@ public class ItemController {
     public void deleteItemByCode(@PathVariable String code){
         service.deletItemByCode(code);
 
+    }
+
+    @GetMapping("/search-by-category/{category}")
+    public List<Item> searchByCategory(@PathVariable String category){
+       return service.searchItemsByCategory(category);
+    }
+
+    @GetMapping("/search-by-name/{name}")
+    public List<Item> searchByName(@PathVariable String name){
+        return service.searchItemByName(name);
+    }
+
+    @PatchMapping("/update-item")
+    public void updateItem(@RequestBody Item item){
+        service.updateItem(item);
     }
 
 

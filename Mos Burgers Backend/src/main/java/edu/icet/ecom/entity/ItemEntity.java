@@ -8,6 +8,9 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 import lombok.ToString;
 
+import java.time.LocalDate;
+import java.util.Date;
+
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
@@ -21,4 +24,7 @@ public class ItemEntity {
     String name;
     Double price;
     Integer discount;
+    String category;
+    Integer qty;
+    LocalDate expireDate;
 }

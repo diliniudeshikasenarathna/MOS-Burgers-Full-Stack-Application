@@ -12,6 +12,12 @@ public interface ItemService {
     Item searchItem(String code);
 
     void deletItemByCode(String code);
+
+    List<Item> searchItemsByCategory(String category);
+
+    List<Item> searchItemByName(String name);
+
+    void updateItem(Item item);
 }
 
 

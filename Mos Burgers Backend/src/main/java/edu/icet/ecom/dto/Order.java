@@ -21,5 +21,5 @@ public class Order {
     private LocalDate date;
     private Double discount;
     private Double total;
-    private String customerPhoneNo;
+    private String  customerPhoneNo;
 }

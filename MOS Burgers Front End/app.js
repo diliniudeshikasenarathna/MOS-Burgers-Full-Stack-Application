@@ -1,6 +1,7 @@
 function addItem(){
     let code=document.getElementById("code").value;
     let name=document.getElementById("name").value;
+    let category=document.getElementById("category").value;
     let price=document.getElementById("price").value;
     let discount=document.getElementById("discount").value;
 
@@ -11,7 +12,8 @@ const raw = JSON.stringify({
   "code": code,
   "name": name,
   "price": price,
-  "discount": discount
+  "discount": discount,
+  "category":category
 });
 
 const requestOptions = {
@@ -49,6 +51,9 @@ function loadItem(element){
                      <th>Code</th>
                      <th>Name</th>
                      <th>Price</th>
+                     <th>Discount</th>
+                     <th>Category</th>
+                     <th>Quantity</th>
                   </tr>`;
 
     
@@ -56,6 +61,9 @@ function loadItem(element){
                                                 <td>${element.code}</td>
                                                 <td>${element.name}</td>
                                                 <td>${element.price}</td>
+                                                <td>${element.discount}</td>
+                                                <td>${element.category}</td>
+                                                <td>${element.qty}</td>
                                               </tr>`
         
       });

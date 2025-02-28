@@ -26,11 +26,10 @@ public class OrderServiceImpl implements OrderService {
     public List<Order> getAll() {
         List<Order> orderList=new ArrayList<>();
         List<OrderEntity> all = repository.findAll();
-        all.forEach(orderEntity -> {
-            orderList.add(mapper.map(orderEntity, Order.class));
-        });
+        all.forEach(orderEntity -> orderList.add(mapper.map(orderEntity, Order.class)));
 
         return orderList;
+
     }
 
     @Override

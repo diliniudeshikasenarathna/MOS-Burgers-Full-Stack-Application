@@ -66,28 +66,62 @@ function updateCartUI() {
         cartList.appendChild(li);
     });
 
-
     let totalDisplay = document.getElementById("total-price");
     totalDisplay.textContent = `Total: ${totalAmount.toFixed(2)} LKR`;
 }
 
 function checkout() {
+    if (cart.length === 0) {
+        alert("Your cart is empty!");
+        return;
+    }
+
     let totalAmount = 0;
-    
-    
     cart.forEach(item => {
         let discountedPrice = item.price - (item.price * item.discount / 100);
         totalAmount += discountedPrice * item.quantity;
     });
 
-    
-    let checkoutMessage = `Checkout successful! Total amount: ${totalAmount.toFixed(2)} LKR`;
-    alert(checkoutMessage);  
+    let customerPhoneNo = prompt("Enter your phone number:");
 
+    if (!customerPhoneNo) {
+        alert("Please provide all details to place an order.");
+        return;
+    }
+
+    let order = {
+        customerPhoneNo: customerPhoneNo ,
+        items: cart,
+        total: totalAmount
+    };
+
+   
     
-    cart = [];
-    updateCartUI();
+    addOrder(order);
 }
+function addOrder(order) {
+    fetch("http://localhost:8080/order/add", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+            itemList: order.items.map(item => item.name),
+            total: order.total,
+            customerPhoneNo: order.customerPhoneNo
+        })
+    })
+    .then(response => response.text())
+    .then(result => {
+        console.log("Server Response:", result);
+        alert(`Order placed successfully!\nTotal Amount: ${order.total.toFixed(2)} LKR`);
+        cart = [];
+        updateCartUI();
+    })
+    .catch(error => console.error("Error sending order:", error));
+
+    console.log("Order Placed:", order);
+}
+
+
 
 
 

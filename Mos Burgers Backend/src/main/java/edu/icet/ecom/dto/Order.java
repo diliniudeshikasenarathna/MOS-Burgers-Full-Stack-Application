@@ -18,8 +18,6 @@ public class Order {
 
     private Long id;
     private List<String> itemList;
-    private LocalDate date;
-    private Double discount;
     private Double total;
     private String  customerPhoneNo;
 }

@@ -1,5 +1,7 @@
 package edu.icet.ecom.entity;
 
+import edu.icet.ecom.dto.Item;
+import edu.icet.ecom.dto.OrdersList;
 import jakarta.persistence.*;
 import lombok.*;
 
@@ -16,9 +18,11 @@ public class OrderEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+
+    @ElementCollection
+    @CollectionTable(name = "order_items", joinColumns = @JoinColumn(name = "order_id"))
+    @Column(name = "item")
     private List<String> itemList;
-    private LocalDate date;
-    private Double discount;
     private Double total;
     private String  customerPhoneNo;
 }
